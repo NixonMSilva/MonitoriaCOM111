@@ -4,15 +4,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-//---- SOLUTION START ----//
+//---- SOLUCAO INICIO ----//
 
-// DISCLAIMER: Bubble sort here is perhaps not the ideal solution
-// since it has a quadratic complexity, besides, the students at 
-// this course weren't introduced to the algorithm just yet
+// AVISO: Bubble sort não é a solução ótima pra esse exercício
 
 int* bubbleSort (int* A, int n)
 {
-	// Sorts an array from smallest to largest value
+	// Ordena o array do menor para o maior elemento
     int i, j, aux;
     for (i = 0; i < n; ++i)
     {
@@ -27,15 +25,15 @@ int* bubbleSort (int* A, int n)
         }
     }
 	
-	// Returns the sorted array
+	// Retorna o array ordenado
     return A;
 }
 
 int* iniciaVetor (int n)
 {
-    // Allocates and initializes a list with n elements
+    // Aloca e inicializa a lista de n elementos
     int* list = (int*) calloc(n, sizeof(int));
-    // Returns the list
+    // Retorna a lista
     return list;
 }
 
@@ -43,19 +41,19 @@ int* uniao (int* A, int nA, int* B, int nB, int* nC)
 {
     int i, j, k, rep, *C;
 
-    // Initializes the new list
+    // Incializa a nova lista
     C = iniciaVetor(nA + nB);
 
     k = 0;
 
-    // Adds all the elements form A on C
+    // Adiciona todos os elementos de A em C
     for (i = 0; i < nA; ++i)
     {
         C[k++] = A[i];
     }
 
-    // Check for repetition in each element of B on A,
-    // if there's none, add the element to C
+    // Cheque por repeticoes de elementos de A no B
+    // se nao houver, adicione ao C
     for (j = 0; j < nB; ++j)
     {
         rep = 0;
@@ -70,10 +68,10 @@ int* uniao (int* A, int nA, int* B, int nB, int* nC)
         }
     }
 
-    // Returns the upper bound of the new list
+    // Retorna o topo dessa lista
     *nC = k;
 
-	// Sorts the array
+	// Ordena a lista
     C = bubbleSort(C, k);
 
     return C;
@@ -83,13 +81,13 @@ int* interseccao (int* A, int nA, int* B, int nB, int *nD)
 {
     int i, j, k, rep, *D;
 
-    // Initializes the new list
+    // Incializa a nova lista
     D = iniciaVetor(nA + nB);
 
     k = 0;
 
-    // Checks for repeated elements of A on B, if there is,
-    // add the repeated element onto C
+    // Checa por elementos de A repetidos em B e vice-versa e
+    // adiciona o elemento repetido em C
     for (i = 0; i < nA; ++i)
     {
         rep = 0;
@@ -104,10 +102,10 @@ int* interseccao (int* A, int nA, int* B, int nB, int *nD)
         }
     }
 
-    // Returns the upper bound of the new list
+    // Retorna o topo da lista
     *nD = k;
 
-	// Sorts the array
+	// Ordena a lista
     D = bubbleSort(D, k);
 
     return D;
@@ -115,7 +113,7 @@ int* interseccao (int* A, int nA, int* B, int nB, int *nD)
 
 void imprimeConjunto (int* C, int nC)
 {
-    // Prints each element of the array until its upper bound
+    // Imprime cada elemento da lista ate seu topo
     for (int i = 0; i < nC; ++i)
     {
         printf("%d ", C[i]);
@@ -125,11 +123,11 @@ void imprimeConjunto (int* C, int nC)
 
 void liberaConjunto (int* A)
 {
-    // Frees the allocated memory
+    // Libera a memoria alocada
     free(A);
 }
 
-//---- SOLUTION END ----//
+//---- SOLUCAO FIM ----//
 
 //NAO ALTERE A MAIN
 int main(int argc, char * argv[]){
