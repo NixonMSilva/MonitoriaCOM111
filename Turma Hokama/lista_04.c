@@ -3,12 +3,12 @@
 
 int somaSubsequencia (int* arrConjunto, int* arrSolucao, int n, int i, int c)
 {
-    // Impress„o da ·rvore de recursıes
-    printf ("f(%d, %d, %d)\n", n, i, c);
+    // Impress√£o da √°rvore de recurs√µes
+    // printf ("f(%d, %d, %d)\n", n, i, c);
 
     if (i == n)
     {
-        // Se a soma chega no valor desejado (i.e. c = 0) quando o vetor È percorrido por inteiro ent„o retorna verdadeiro
+        // Se a soma chega no valor desejado (i.e. c = 0) quando o vetor √© percorrido por inteiro ent√£o retorna verdadeiro
         if (c == 0) return 1;
         return 0;
     }
@@ -17,12 +17,12 @@ int somaSubsequencia (int* arrConjunto, int* arrSolucao, int n, int i, int c)
     if (c < 0) return 0;
 
     arrSolucao[i] = 0;
-    // Percorre a ·rvore para arrSolucao[i] n„o pego, retorna 1 se a soluÁ„o bate (vide linha 12)
+    // Percorre a √°rvore para arrSolucao[i] n√£o pego, retorna 1 se a solu√ß√£o bate (vide linha 12)
     if (somaSubsequencia(arrConjunto, arrSolucao, n, i + 1, c))
         return 1;
 
     arrSolucao[i] = 1;
-    // Percorre a ·rvore para arrSolucao[i] pego, retorna 1 se a soluÁ„o bate (vide linha 12)
+    // Percorre a √°rvore para arrSolucao[i] pego, retorna 1 se a solu√ß√£o bate (vide linha 12)
     if (somaSubsequencia(arrConjunto, arrSolucao, n, i + 1, c - arrConjunto[i]))
         return 1;
 
